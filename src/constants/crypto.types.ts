@@ -1,0 +1,1 @@
+export const cryptoTypes= ["BTC", "ETH", "BNB", "USDT", "USDC"];
