@@ -1,14 +1,29 @@
-import axios from 'axios';
+import axios from "axios";
 
 /** @type {import('next').NextConfig} */
-const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-const withPolling= (config)=>{
-    setInterval(async()=>{
-        await axios.get(`${apiUrl}/api/poll`).then().catch(e=>console.log(e));
-    },6000)
-   
-    return config
-}
-const nextConfig =withPolling({});
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+const pollData = async () => {
+  try {
+    const resp = await axios.get(`${apiUrl}/api/poll`);
+   return
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+
+const withPolling = (config) => {
+
+  pollData();
+  const myInterval = setInterval(async () => {
+    await pollData();
+  }, 6000);
+
+  return config;
+};
+
+
+const nextConfig = withPolling({});
 
 export default nextConfig;
