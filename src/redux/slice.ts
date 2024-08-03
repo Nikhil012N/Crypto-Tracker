@@ -11,7 +11,7 @@ const initialState: CryptoState = {
     error: null,
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL ;
 
 export const fetchCryptoData = (): AppThunk => async (dispatch, getState) => {
   dispatch(fetchStart());
