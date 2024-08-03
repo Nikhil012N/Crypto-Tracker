@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /** @type {import('next').NextConfig} */
-const apiUrl = process.env.BASE_URL || 'http://localhost:3000';
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 const withPolling= (config)=>{
     setInterval(async()=>{
         await axios.get(`${apiUrl}/api/poll`).then().catch(e=>console.log(e));
