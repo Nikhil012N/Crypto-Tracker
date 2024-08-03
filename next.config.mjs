@@ -1,11 +1,11 @@
 import axios from "axios";
 
 /** @type {import('next').NextConfig} */
-const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || "/";
 
 const pollData = async () => {
   try {
-    const resp = await axios.get(`${apiUrl}/api/poll`);
+    const resp = await axios.get(`${apiUrl}api/poll`);
    return
   } catch (e) {
     console.log(e.message);

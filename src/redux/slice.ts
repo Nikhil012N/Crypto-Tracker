@@ -11,13 +11,13 @@ const initialState: CryptoState = {
     error: null,
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_BASE_URL ;
+const apiUrl = process.env.NEXT_PUBLIC_BASE_URL ||"/";
 
 export const fetchCryptoData = (): AppThunk => async (dispatch, getState) => {
   dispatch(fetchStart());
   try {
     const symbol = getState()?.crypto?.symbol;
-    const response = await axios.get(`${apiUrl}/api/crypto?symbol=${symbol}`);
+    const response = await axios.get(`${apiUrl}api/crypto?symbol=${symbol}`);
     dispatch(fetchSuccess(response?.data));
   } catch (error:any) {
     dispatch(fetchFailure(error?.message));
