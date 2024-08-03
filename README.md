@@ -1,4 +1,4 @@
-# Real-Time Data Fomo-Factory
+# Real-Time Data Crypto Tracker
 
 ### Prerequisites
 

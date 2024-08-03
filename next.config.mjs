@@ -4,7 +4,7 @@ import axios from 'axios';
 const apiUrl = process.env.BASE_URL || 'http://localhost:3000';
 const withPolling= (config)=>{
     setInterval(async()=>{
-        await axios.get(`${apiUrl}/api/poll`);
+        await axios.get(`${apiUrl}/api/poll`).then().catch(e=>console.log(e));
     },6000)
    
     return config
