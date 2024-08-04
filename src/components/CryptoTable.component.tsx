@@ -1,13 +1,14 @@
 import { CryptoInterface, CryptoState } from "@/constants/data.interface";
 import { fetchCryptoData } from "@/redux/slice";
 import { useAppDispatch } from "@/redux/store";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import React, { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
-import SkeletonLoader from "./skeletion.loading";
+import ErrorComp from "./error.component";
 export const dynamic = "force-dynamic";
 const CryptoTable:FC = () => {
   const dispatch = useAppDispatch();
-  const { data, symbol, loading, error } = useSelector(
+  const { data, symbol, loading,error} = useSelector(
     (state: any) => state?.crypto
   );
   useEffect(() => {
@@ -19,13 +20,12 @@ const CryptoTable:FC = () => {
     return () => clearInterval(interval);
   }, [dispatch, symbol]);
 
-  if (loading) {
-    return <SkeletonLoader/>;
+  if(error){
+    return <ErrorComp/>
   }
-if(error){
-  return <div className="text-red-800 text-2xl font-bold">Some thing went wrong !</div>
-}
+
   return (
+
     <div className="relative overflow-x-auto shadow-md rounded-lg bg-white dark:bg-gray-800">
       <table className="min-w-full text-sm text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">

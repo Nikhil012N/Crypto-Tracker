@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CryptoTable from '../components/CryptoTable.component';
 import CryptoModal from '../components/CryptoModal.component';
 import { unstable_noStore as noStore } from 'next/cache';
+
 const HomePage: React.FC = () => {
   noStore()
   const [showModal, setShowModal] = useState(false);
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
         Change Crypto
       </button>
     </div>
-    <CryptoTable />
+   <CryptoTable />
     {showModal && <CryptoModal onClose={() => setShowModal(false)} />}
   </div>
   </>

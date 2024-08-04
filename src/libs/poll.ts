@@ -1,16 +1,11 @@
 import axios from "axios";
 import cryptoData from "@/schema/crypto.schema";
 import mongoConnection from "@/libs/mongo.db";
-import { log } from "console";
-import { NextResponse } from "next/server";
 import { cryptoTypes } from "@/constants/crypto.types";
-
-
-
-export async function GET() {
+ export default async function PollData() {
   try {
     await mongoConnection();
-
+     console.log("work")
     const responses = await axios.post(
       "https://api.livecoinwatch.com/coins/map",
       {
@@ -26,7 +21,6 @@ export async function GET() {
         headers: {
           "content-type": "application/json",
           "x-api-key": "35f737e8-8b17-4160-a498-a1d8c30351c4",
-          'Cache-Control': 'no-store',
         },
       }
     ).then((resp) => resp?.data);
@@ -45,21 +39,10 @@ export async function GET() {
       await newData.save();
     }
 
-    return NextResponse.json({},{status:201})
+    return {statuds:200};
   } catch (error: any) {
-    return NextResponse.json({ message: "An error occurred", error: error.message },{status:500});
+    return {statuds:500};
   }
 }
 
-export async function DELETE() {
-    try {
-      await mongoConnection();
-  
-    
-  
-      return NextResponse.json({message:"data delete of past 1 day"},{status:201})
-    } catch (error: any) {
-      return NextResponse.json({ message: "An error occurred", error: error.message },{status:500});
-    }
-  }
-  
+
