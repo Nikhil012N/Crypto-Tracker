@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/redux/store';
 
 import React, { FC, useEffect } from 'react'
 import {  useSelector } from 'react-redux';
-
+export const dynamic="force-dynamic";
 const CryptoTable:FC = () => {
     const dispatch = useAppDispatch();
     const { data, symbol, loading, error } = useSelector((state:any) => state?.crypto );

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import CryptoTable from './CryptoTable.component';
 import CryptoModal from './CryptoModal.component';
-export const dynamic="force-dynamic";
+
 const HomePage: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
