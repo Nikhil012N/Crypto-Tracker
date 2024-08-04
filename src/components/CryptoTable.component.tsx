@@ -1,31 +1,16 @@
-import { CryptoInterface, CryptoState } from "@/constants/data.interface";
-import { fetchCryptoData } from "@/redux/slice";
-import { useAppDispatch } from "@/redux/store";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import React, { FC, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { CryptoInterface, TableInterFace } from "@/constants/data.interface";
+import React, { FC, useEffect, useLayoutEffect } from "react";
+
 import ErrorComp from "./error.component";
 export const dynamic = "force-dynamic";
-const CryptoTable:FC = () => {
-  const dispatch = useAppDispatch();
-  const { data, symbol, loading,error} = useSelector(
-    (state: any) => state?.crypto
-  );
-  useEffect(() => {
-    dispatch(fetchCryptoData());
-    const interval = setInterval(() => {
-      dispatch(fetchCryptoData());
-    }, 6000);
 
-    return () => clearInterval(interval);
-  }, [dispatch, symbol]);
 
-  if(error){
-    return <ErrorComp/>
+const CryptoTable: FC<TableInterFace> = ({ data, error, loading }) => {
+  if (error && !loading) {
+    return <ErrorComp />;
   }
 
   return (
-
     <div className="relative overflow-x-auto shadow-md rounded-lg bg-white dark:bg-gray-800">
       <table className="min-w-full text-sm text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">

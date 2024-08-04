@@ -9,9 +9,12 @@ export interface CryptoInterface {
     timestamp: Date;
 }
 
-export interface CryptoState {
-    data: CryptoInterface[] ;
-    symbol: string;
+export interface TableInterFace {
+    data: CryptoInterface[];
+    error: any;
     loading: boolean;
-    error: string | null;
+  }
+export interface CryptoState extends TableInterFace {
+    symbol: string;
+
   }

@@ -5,7 +5,6 @@ import { cryptoTypes } from "@/constants/crypto.types";
  export default async function PollData() {
   try {
     await mongoConnection();
-     console.log("work")
     const responses = await axios.post(
       "https://api.livecoinwatch.com/coins/map",
       {
