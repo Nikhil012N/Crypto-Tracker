@@ -26,6 +26,7 @@ export async function GET() {
         headers: {
           "content-type": "application/json",
           "x-api-key": "35f737e8-8b17-4160-a498-a1d8c30351c4",
+          'Cache-Control': 'no-store',
         },
       }
     ).then((resp) => resp?.data);

@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react';
-import CryptoTable from './CryptoTable.component';
-import CryptoModal from './CryptoModal.component';
-
+import CryptoTable from '../components/CryptoTable.component';
+import CryptoModal from '../components/CryptoModal.component';
+import { unstable_noStore as noStore } from 'next/cache';
 const HomePage: React.FC = () => {
+  noStore()
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
     <div className="container mx-auto p-4">
