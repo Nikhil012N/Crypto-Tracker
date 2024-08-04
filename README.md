@@ -1,7 +1,6 @@
 # Real-Time Data Crypto Tracker
 
 ```https://crypto-tracker-nu-lake.vercel.app/```
-
 ### Prerequisites
 
 - Node.js
@@ -28,7 +27,7 @@
 
     ```env
     NEXT_PUBLIC_MONGO_URI=mongodb://localhost:27017/stockData
-    NEXT_PUBLIC_BASE_URL=http://localhost:3000
+    NEXT_PUBLIC_BASE_URL=http://localhost:3000/
     ```
 
 ### Running the Application
