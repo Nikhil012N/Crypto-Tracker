@@ -1,5 +1,7 @@
 # Real-Time Data Crypto Tracker
 
+```https://crypto-tracker-nu-lake.vercel.app/```
+
 ### Prerequisites
 
 - Node.js
@@ -10,8 +12,8 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-repo/mini-website.git
-    cd mini-website
+    git clone https://github.com/Nikhil012N/crypto-tracker.git
+    cd crypto-tracker
     ```
 
 2. Install dependencies:
@@ -25,7 +27,7 @@
     Create a `.env.local` file in the root directory and add your MongoDB URI:
 
     ```env
-    MONGO_URI=mongodb://localhost:27017/stockData
+    NEXT_PUBLIC_MONGO_URI=mongodb://localhost:27017/stockData
     NEXT_PUBLIC_BASE_URL=http://localhost:3000
     ```
 
